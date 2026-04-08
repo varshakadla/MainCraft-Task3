@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contact-page">
+    <div class="contact-container">
+        <img class="menu-img" src="Images/menu.png" alt="" onclick="openMenu()">
+        <div class="fullscreen-menu" id="menu">
+        
+                <!-- LEFT SIDE -->
+                <div class="menu-left">
+                    <img src="Images/profile.jpg" alt="">
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="menu-right">
+                    <p class="close-btn" onclick="closeMenu()">✖</p>
+                    <a href="hero.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="project.html">Project</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+        </div>
+        <p class="contact-line">Contact <span>Me</span></p>
+        <p class="contact-tag">This is how you can contact me...</p>
+
+            <div class="contact-main">
+                <div class="contact-section">
+                    <p class="number">Contact No: 9876543210</p>
+                    <p class="email">Email No: xyz23@gmail.com</p>
+                    <p class="address">Address : 2-3 XYZ House, 2nd Main, 1st Cross, New Delhi</p>
+                </div>
+            </div>
+    </div>
+
+    <div class="connect-container">
+        <p class="connect-para">Let’s Connect</p>
+
+        <form id="contact-form">
+
+            <div class="form-group">
+                <label>Name:</label>
+                <input id="name" type="text" placeholder="Enter Your Name">
+                <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Contact No:</label>
+                <input id="contact" type="text" placeholder="Enter Your Contact No">
+                <span class="error" id="contactError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address:</label>
+                <input id="email" type="text" placeholder="Enter Your Email Address">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Message:</label>
+                <textarea id="message" placeholder="Enter Your Message"></textarea>
+                <span class="error" id="messageError"></span>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+
+        </form>
+    </div>
+    </div>
+    
+    <script>
+
+        window.addEventListener("scroll", function () {
+            const page = document.querySelector(".contact-page");
+
+            if (window.scrollY > 100) {
+                page.classList.add("scrolled");
+            } else {
+                page.classList.remove("scrolled");
+            }
+        });
+
+        function openMenu(){
+            document.getElementById("menu").classList.add("active");
+        }
+
+        function closeMenu(){
+            document.getElementById("menu").classList.remove("active");
+        }
+
+        // Let's Connect JS code
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let valid = true;
+
+            let name = document.getElementById("name").value.trim();
+            let contact = document.getElementById("contact").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("contactError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("messageError").innerText = "";
+
+            if(name == ""){
+                document.getElementById("nameError").innerText = "Name is Required";
+                valid = false;
+            }
+
+            let contactPattern = /^[0-9]{10}$/;
+            if(contact === "") {
+                document.getElementById("contactError").innerText = "Contact is Required";
+                valid = false;
+            }
+            else if(!contact.match(contactPattern)) {
+                document.getElementById("contactError").innerText = "Enter valid 10-digit number";
+                valid = false;
+            }
+
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email === "") {
+                document.getElementById("emailError").innerText = "Email is required";
+                valid = false;
+            } else if (!email.match(emailPattern)) {
+                document.getElementById("emailError").innerText = "Invalid email format";
+                valid = false;
+            }
+
+            if (message === "") {
+                document.getElementById("messageError").innerText = "Message cannot be empty";
+                valid = false;
+            }
+
+            if (valid) {
+                document.querySelector(".submit-btn").innerText = "Sent";
+                alert("Form submitted successfully!");
+                location.reload(); 
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="project-container">
+        <img class="menu-img" src="Images/menu.png" alt="" onclick="openMenu()">
+        <div class="fullscreen-menu" id="menu">
+        
+                <!-- LEFT SIDE -->
+                <div class="menu-left">
+                    <img src="Images/profile.jpg" alt="">
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="menu-right">
+                    <p class="close-btn" onclick="closeMenu()">✖</p>
+                    <a href="hero.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="project.html">Project</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+        </div>
+        <div class="project-heading">
+            <p class="project-line">My <span>Work</span></p>
+            <p class="project-tag">Check out some of my work...</p>
+        </div>
+        
+        <div class="project-section">
+            <div class="project-card"> 
+                <img src="Images/gestures1.jpg" alt="">
+                <div class="project-link">
+                <a href="https://github.com/varshakadla/Hand-Gesture-Recognition">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">           
+                <img src="Images/Elec.png" alt="">
+                <div class="project-link">
+                <a href="https://github.com/varshakadla/Home-Services-Project">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="Images/saloon.avif" alt="">
+                <div class="project-link">
+                <a href="https://github.com/varshakadla/Hair-Saloon">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">           
+                <img src="Images/eco.jpg" alt="">
+                <div class="project-link">
+                <a href="https://github.com/varshakadla/MainCraft-Task1">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+        function openMenu(){
+            document.getElementById("menu").classList.add("active");
+        }
+
+        function closeMenu(){
+            document.getElementById("menu").classList.remove("active");
+        }
+    </script>
+</body>
+</html>
